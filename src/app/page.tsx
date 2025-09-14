@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Eye, EyeOff, Globe, Sparkles, BarChart2, Layers, Users, Shield, Zap } from 'lucide-react';
+import { Eye, EyeOff, Sparkles, BarChart2, Layers, Users, Shield, Zap } from 'lucide-react';
 
 const ACCENT = '#ea580c'; // Sipman accent (orange)
 
@@ -31,15 +31,7 @@ export default function Page() {
         <a href="/" className="select-none text-2xl font-bold tracking-tight">Sipman</a>
       </header>
 
-      {/* LANG SWITCH */}
-      <div className="fixed left-6 top-[76px] z-40 flex items-center gap-2 text-sm opacity-90">
-        <Globe className="h-4 w-4" />
-        <nav>
-          <a href="/th/login" className="hover:underline opacity-80">TH</a>
-          <span className="mx-1 opacity-40">/</span>
-          <a href="/en/login" className="hover:underline">EN</a>
-        </nav>
-      </div>
+      {/* Language switch removed (EN only) */}
 
       {/* LOGIN CARD: mobile-friendly, fixed on desktop */}
       <aside className="static z-50 mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] bg-white/50 backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]">
@@ -112,9 +104,11 @@ export default function Page() {
           </div>
         </section>
 
-        {/* LIGHT TRUST LINE */}
-        <section className="mt-10 text-center text-xs uppercase tracking-wide text-stone-500">
-          Used in Michelin‑star environments in Bangkok
+        {/* TRUST LINE (prominent, no pill) */}
+        <section className="mt-10 text-center">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-stone-600 md:text-sm">
+            Used in Michelin‑star, 50 Best, and fine‑dining venues in Bangkok
+          </p>
         </section>
 
         {/* FEATURES GRID */}
@@ -164,12 +158,8 @@ export default function Page() {
 
       {/* FOOTER */}
       <footer className="relative z-30 mt-auto w-full px-6 py-10 text-center text-xs text-stone-500">
-        <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-[11px] text-stone-600">
-          <Shield className="h-3.5 w-3.5 text-stone-500" />
-          <span>Complies with Thai regulations — no online alcohol sales to individuals.</span>
-        </div>
         <p>
-          © {new Date().getFullYear()} Sipman · Bangkok, Thailand · <a href={DOC_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">Terms</a> · <a href={DOC_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">Privacy</a>
+          © {new Date().getFullYear()} Sipman · Bangkok, Thailand · Complies with Thai regulations — no online alcohol sales to individuals. · <a href={DOC_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">Terms & Privacy</a>
         </p>
       </footer>
     </div>
