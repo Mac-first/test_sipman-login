@@ -38,7 +38,6 @@ export default function Page() {
         className="static z-50 mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]"
         style={{ backgroundColor: 'rgba(255, 252, 250, 0.5)' }}
       >
-        <h2 className="mb-1 text-base font-semibold tracking-tight">Login</h2>
         <form className="space-y-1.5" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs">
             <span className="mb-1 block text-stone-700">Email</span>
@@ -77,7 +76,7 @@ export default function Page() {
           </div>
           <button
             type="submit"
-            className="mt-1 w-full rounded-xl bg-stone-900 px-4 py-2 font-semibold text-white hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-300"
+            className="mt-1 w-full rounded-lg bg-stone-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-300"
           >
             Login
           </button>
