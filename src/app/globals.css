@@ -1,13 +1,49 @@
 @import "tailwindcss";
 
 :root {
+  /* Base (light) — align with main pages */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Sipman palette */
+  --sip-black: #0E0D0B;
+  --sip-red: #B71515; /* wine-red */
+  --sip-orange: #E8984D; /* wine-orange */
+  --sip-rose: #F8A0A5; /* wine-rosé */
+  --sip-gray-800: #303030;
+  --sip-gray: #767676;
+  --sip-gray-300: #B0B0B0;
+  --sip-success-500: #41542F;
+  --sip-corkgold: #C29E41;
+  --sip-champagne: #F8F2E8;
+  --sip-champagne-100: #FFFCFA;
+  --sip-champagne-200: #FBF6EF;
+  --sip-gold-line: #A3832F;
+  --sip-champagne-50: #FFFEFD;
+  --sip-vintage-gold: #C1AD77;
+  --sip-oak-800: #554737;
+  --sip-corkgold-hover: #CA7D09;
+  --sip-wine-white: #FFFAEA;
+  --sip-wine-sweet: #A43271;
+  --sip-wine-sparkling: #E5CF9A;
+  --sip-wine-fortified: #500C83;
+  --sip-wine-other: #737373;
+
+  /* Accent used in UI elements */
+  --accent: var(--sip-orange);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-sip-black: var(--sip-black);
+  --color-sip-gray: var(--sip-gray);
+  --color-sip-gray-800: var(--sip-gray-800);
+  --color-sip-gray-300: var(--sip-gray-300);
+  --color-accent: var(--accent);
+  --color-champagne-50: var(--sip-champagne-50);
+  --color-champagne-100: var(--sip-champagne-100);
+  --color-champagne-200: var(--sip-champagne-200);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -22,5 +58,57 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Component tokens */
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold transition-colors;
+}
+.btn-primary {
+  background: var(--sip-black);
+  color: #fff;
+}
+.btn-primary:hover { background: color-mix(in oklab, var(--sip-black), white 10%); }
+.btn-outline {
+  border: 1px solid var(--sip-gray-300);
+  color: var(--sip-black);
+  background: transparent;
+}
+.btn-outline:hover { background: #ffffff; }
+
+.card {
+  @apply rounded-2xl border p-5 shadow-sm;
+  border-color: var(--sip-gray-300);
+  background: #ffffff;
+}
+
+.input {
+  @apply w-full rounded-xl border px-3 py-1.5 outline-none;
+  border-color: #e5e5e5;
+  background: #ffffff;
+  color: var(--sip-black);
+}
+.input::placeholder { color: #9ca3af; }
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.input-error { border-color: var(--sip-red) !important; }
+.error-text { color: var(--sip-red); }
+
+.link-accent { color: var(--accent); }
+.link-accent:hover { text-decoration: underline; }
+
+.border-gold-line { border-color: var(--sip-gold-line); }
+
+/* Wine type badges */
+.badge { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium; }
+.badge-wine-red { background: var(--sip-red); color: #fff; }
+.badge-wine-white { background: var(--sip-wine-white); color: var(--sip-gray-800); }
+.badge-wine-rose { background: var(--sip-rose); color: var(--sip-gray-800); }
+.badge-wine-sparkling { background: var(--sip-wine-sparkling); color: var(--sip-gray-800); }
+.badge-wine-sweet { background: var(--sip-wine-sweet); color: #fff; }
+.badge-wine-fortified { background: var(--sip-wine-fortified); color: #fff; }
+.badge-wine-orange { background: var(--sip-orange); color: #fff; }
+.badge-wine-other { background: var(--sip-wine-other); color: #fff; }
+
+/* Toasts */
+.toast-success { background: var(--sip-success-500); color: #fff; }

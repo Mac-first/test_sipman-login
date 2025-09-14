@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Eye, EyeOff, Sparkles, BarChart2, Layers, Users, Shield, Zap } from 'lucide-react';
 
-const ACCENT = '#ea580c'; // Sipman accent (orange)
+const ACCENT = '#E8984D'; // Sipman accent (wine-orange)
 
 // Brand assets
 const DOC_URL = 'https://docs.google.com/document/d/1qEe9bdln6Ue5n_z9OLgpeR3SDumJxGJGCi4J6gC33Xg/edit?usp=sharing';
@@ -34,7 +34,10 @@ export default function Page() {
       {/* Language switch removed (EN only) */}
 
       {/* LOGIN CARD: mobile-friendly, fixed on desktop */}
-      <aside className="static z-50 mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] bg-white/50 backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]">
+      <aside
+        className="static z-50 mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]"
+        style={{ backgroundColor: 'rgba(255, 252, 250, 0.5)' }}
+      >
         <h2 className="mb-1 text-base font-semibold tracking-tight">Login</h2>
         <form className="space-y-1.5" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs">
@@ -78,7 +81,7 @@ export default function Page() {
           >
             Login
           </button>
-          {/* Removed Google sign-in per request */}
+          {/* Google sign-in intentionally removed */}
         </form>
       </aside>
 
