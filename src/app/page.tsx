@@ -11,7 +11,6 @@ const DOC_URL = 'https://docs.google.com/document/d/1qEe9bdln6Ue5n_z9OLgpeR3SDum
 
 export default function Page() {
   const [showPwd, setShowPwd] = useState(false);
-  const [logoSrc, setLogoSrc] = useState('/sipman-logo.png');
 
   return (
     <div
@@ -21,14 +20,13 @@ export default function Page() {
       {/* HEADER LEFT: LOGO + WORDMARK */}
       <header className="fixed left-6 top-6 z-40 flex items-center gap-3">
         <Image
-          src={logoSrc}
+          src="/logo.png"
           alt="Sipman logo"
           width={40}
           height={40}
           sizes="(max-width: 768px) 32px, 40px"
           priority
-          onError={() => setLogoSrc('/favicon.ico')}
-          className="h-8 w-8"
+          className="h-8 w-8 rounded"
         />
         <a href="/" className="select-none text-2xl font-bold tracking-tight">Sipman</a>
       </header>
@@ -43,8 +41,8 @@ export default function Page() {
         </nav>
       </div>
 
-      {/* LOGIN CARD TOP-RIGHT (fixed) */}
-      <aside className="fixed right-4 top-4 z-40 w-[70vw] max-w-[18rem] rounded-xl border border-[var(--accent)] bg-white/10 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)]">
+      {/* LOGIN CARD: mobile-friendly, fixed on desktop */}
+      <aside className="static mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] bg-white/10 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]">
         <h2 className="mb-1 text-base font-semibold tracking-tight">Login</h2>
         <form className="space-y-1.5" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs">
@@ -52,6 +50,8 @@ export default function Page() {
             <input
               type="email"
               placeholder="email@email.com"
+              autoComplete="email"
+              inputMode="email"
               className="w-full rounded-xl border border-stone-200 bg-white px-3 py-1.5 text-stone-900 placeholder-stone-400 outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
               required
             />
@@ -62,6 +62,7 @@ export default function Page() {
               <input
                 type={showPwd ? 'text' : 'password'}
                 placeholder="••••••••"
+                autoComplete="current-password"
                 className="w-full rounded-xl border border-stone-200 bg-white px-3 py-1.5 pr-10 text-stone-900 placeholder-stone-400 outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
                 required
               />
@@ -77,7 +78,7 @@ export default function Page() {
           </label>
           <div className="flex items-center justify-between text-xs">
             <a href="/en/forgot" className="text-[var(--accent)] hover:underline">Forgot password?</a>
-            <a href="/en/signup" className="text-[var(--accent)] hover:underline">Sign up</a>
+            <a href="/en/signup" className="text-[var(--accent)] hover:underline">Create account</a>
           </div>
           <button
             type="submit"
@@ -85,6 +86,7 @@ export default function Page() {
           >
             Login
           </button>
+          {/* Removed Google sign-in per request */}
         </form>
       </aside>
 
@@ -92,21 +94,21 @@ export default function Page() {
       <main className="relative z-30 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-24">
         <section className="text-center">
           <Image
-            src={logoSrc}
+            src="/logo.png"
             alt="Sipman"
             width={120}
             height={120}
             sizes="(max-width: 768px) 80px, 120px"
-            onError={() => setLogoSrc('/favicon.ico')}
             className="mx-auto mb-6 h-28 w-28 rounded"
+            priority
           />
-          <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl">The Digital Beverage Solution</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl">Run your beverage program with clarity</h1>
           <p className="mx-auto mt-4 max-w-3xl text-stone-600 md:text-lg">
-            For Thailand’s HORECA. Built by Michelin‑star sommeliers to manage inventory, digital menus, and supplier relations. Free for venues. Supplier commission model.
+            Inventory, digital menus, and supplier workflows — in one place. Designed in Bangkok for Thailand’s HORECA by Michelin‑star sommeliers.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a href="#investors" className="rounded-xl bg-stone-900 px-5 py-3 text-sm font-semibold text-white hover:bg-stone-800">Investor overview</a>
-            <a href="#features" className="rounded-xl border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-900 hover:bg-white">Product features</a>
+            <a href="mailto:sipman.asia@gmail.com?subject=Sipman%20Demo%20Request" className="rounded-xl bg-stone-900 px-5 py-3 text-sm font-semibold text-white hover:bg-stone-800">Request a demo</a>
+            <a href="#investors" className="rounded-xl border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-900 hover:bg-white">Investor overview</a>
           </div>
         </section>
 
@@ -118,22 +120,22 @@ export default function Page() {
         {/* FEATURES GRID */}
         <section id="features" className="mt-12 grid w-full max-w-6xl grid-cols-1 gap-5 md:grid-cols-3">
           <FeatureCard icon={<Layers className="h-5 w-5" />} title="Inventory">
-            Real‑time stock, alerts, bulk edits, and cost control.
+            Track every bottle in real‑time, cut waste, and stay on top of costs.
           </FeatureCard>
           <FeatureCard icon={<Sparkles className="h-5 w-5" />} title="Digital menus">
-            Elegant QR and print‑ready lists. Instant updates.
+            Beautiful QR and print menus that update instantly — no reprinting.
           </FeatureCard>
           <FeatureCard icon={<Users className="h-5 w-5" />} title="Supplier links">
-            Quotes, samples, and orders in one workspace.
+            Request quotes, samples, and place orders without email back‑and‑forth.
           </FeatureCard>
           <FeatureCard icon={<BarChart2 className="h-5 w-5" />} title="Insights">
-            Movement by SKU, venue, and period. Smarter purchasing.
+            Understand movement by SKU and venue to buy smarter, faster.
           </FeatureCard>
           <FeatureCard icon={<Shield className="h-5 w-5" />} title="Compliance">
-            Thai legal constraints respected. No online alcohol sales by Sipman.
+            Built‑in respect of Thai regulations for responsible operations.
           </FeatureCard>
           <FeatureCard icon={<Zap className="h-5 w-5" />} title="Integrations">
-            Accounting and WMS connectors on roadmap.
+            Accounting and WMS connectors on the roadmap.
           </FeatureCard>
         </section>
 
@@ -143,8 +145,8 @@ export default function Page() {
             <h3 className="text-xl font-semibold">Why invest now</h3>
             <ul className="mt-3 grid list-disc gap-2 pl-5 text-sm text-stone-700">
               <li>MVP live; early validation in Michelin‑star restaurants.</li>
-              <li>Free for HORECA. Supplier‑side commission scales with usage.</li>
-              <li>Capital‑efficient roadmap to supplier monetization.</li>
+              <li>Free for HORECA; clear path to supplier‑side monetization.</li>
+              <li>Capital‑efficient roadmap focused on core workflows.</li>
               <li>Growing beverage dataset and usage patterns create a moat.</li>
             </ul>
             <a href="mailto:sipman.asia@gmail.com" className="mt-5 inline-block rounded-xl bg-stone-900 px-5 py-3 text-sm font-semibold text-white hover:bg-stone-800">Request investor deck</a>
