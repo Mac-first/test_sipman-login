@@ -35,29 +35,29 @@ export default function Page() {
 
       {/* LOGIN CARD: mobile-friendly, fixed on desktop */}
       <aside
-        className="static z-50 mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]"
+        className="static z-50 mx-auto mt-4 w-[69vw] max-w-[18rem] rounded-xl border border-[var(--accent)] backdrop-blur-md backdrop-saturate-150 p-[0.4rem] shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[52.5vw] md:max-w-[13.5rem]"
         style={{ backgroundColor: 'rgba(255, 252, 250, 0.5)' }}
       >
-        <form className="space-y-1.5" onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-[0.3rem]" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs">
-            <span className="mb-1 block text-stone-700">Email</span>
+            <span className="mb-[0.2rem] block text-stone-700">Email</span>
             <input
               type="email"
               placeholder="email@email.com"
               autoComplete="email"
               inputMode="email"
-              className="w-full rounded-xl border border-stone-200 bg-white px-3 py-1.5 text-stone-900 placeholder-stone-400 outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
+              className="w-full rounded-xl border border-stone-200 bg-white px-3 py-[0.3rem] text-stone-900 placeholder-stone-400 outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
               required
             />
           </label>
           <label className="block text-xs">
-            <span className="mb-1 block text-stone-700">Password</span>
+            <span className="mb-[0.2rem] block text-stone-700">Password</span>
             <div className="relative">
               <input
                 type={showPwd ? 'text' : 'password'}
                 placeholder="••••••••"
                 autoComplete="current-password"
-                className="w-full rounded-xl border border-stone-200 bg-white px-3 py-1.5 pr-10 text-stone-900 placeholder-stone-400 outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
+                className="w-full rounded-xl border border-stone-200 bg-white px-3 py-[0.3rem] pr-10 text-stone-900 placeholder-stone-400 outline-none focus:border-[var(--accent)] focus:ring-1 focus:ring-[var(--accent)]"
                 required
               />
               <button
@@ -76,7 +76,7 @@ export default function Page() {
           </div>
           <button
             type="submit"
-            className="mt-1 w-full rounded-lg bg-stone-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-300"
+            className="mt-[0.2rem] w-full rounded-lg bg-stone-900 px-3 py-[0.3rem] text-sm font-medium text-white hover:bg-stone-800 focus:outline-none focus:ring-2 focus:ring-stone-300"
           >
             Login
           </button>
