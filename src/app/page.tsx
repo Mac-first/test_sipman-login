@@ -42,7 +42,7 @@ export default function Page() {
       </div>
 
       {/* LOGIN CARD: mobile-friendly, fixed on desktop */}
-      <aside className="static mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] bg-white/10 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]">
+      <aside className="static z-50 mx-auto mt-4 w-[92vw] max-w-sm rounded-xl border border-[var(--accent)] bg-white/50 backdrop-blur-md backdrop-saturate-150 p-2 shadow-[0_6px_24px_rgba(0,0,0,0.08)] md:fixed md:right-4 md:top-4 md:mx-0 md:mt-0 md:w-[70vw] md:max-w-[18rem]">
         <h2 className="mb-1 text-base font-semibold tracking-tight">Login</h2>
         <form className="space-y-1.5" onSubmit={(e) => e.preventDefault()}>
           <label className="block text-xs">
@@ -164,6 +164,10 @@ export default function Page() {
 
       {/* FOOTER */}
       <footer className="relative z-30 mt-auto w-full px-6 py-10 text-center text-xs text-stone-500">
+        <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-[11px] text-stone-600">
+          <Shield className="h-3.5 w-3.5 text-stone-500" />
+          <span>Complies with Thai regulations — no online alcohol sales to individuals.</span>
+        </div>
         <p>
           © {new Date().getFullYear()} Sipman · Bangkok, Thailand · <a href={DOC_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">Terms</a> · <a href={DOC_URL} target="_blank" rel="noopener noreferrer" className="hover:underline">Privacy</a>
         </p>
