@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Eye, EyeOff, Sparkles, BarChart2, Layers, Users, Shield, Zap, CheckCircle2, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Sparkles, BarChart2, Layers, Users, Shield, Zap, CheckCircle2, Loader2, Quote } from 'lucide-react';
 
 const ACCENT = '#E8984D'; // Sipman accent (wine-orange)
 
@@ -213,24 +213,48 @@ export default function Page() {
         </section>
 
         {/* INVESTOR BLOCK */}
-        <section id="investors" className="mt-14 grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="md:col-span-2 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-            <h3 className="text-xl font-semibold">Why invest now</h3>
-            <ul className="mt-3 grid list-disc gap-2 pl-5 text-sm text-stone-700">
-              <li>MVP live; early validation in Michelin‑star restaurants.</li>
-              <li>Free for HORECA; clear path to supplier‑side monetization.</li>
-              <li>Capital‑efficient roadmap focused on core workflows.</li>
-              <li>Growing beverage dataset and usage patterns create a moat.</li>
-            </ul>
-            <a href="mailto:sipman.asia@gmail.com" className="mt-5 inline-block rounded-xl bg-stone-900 px-5 py-3 text-sm font-semibold text-white hover:bg-stone-800">Request investor deck</a>
-          </div>
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-            <h3 className="mb-4 text-xl font-semibold">Testimonials</h3>
-            <ul className="space-y-3 text-sm text-stone-700 text-center">
-              <li>“Sipman streamlines operations for creative kitchens.” — Chalee Kader, Wana Yook</li>
-              <li>“Nothing comparable right now.” — Antoine & Théo, Bisou Bangkok</li>
-              <li>“Great opportunity for suppliers.” — Kim Wachtveitl, Wine Garage</li>
-            </ul>
+        <section id="investors" className="mt-16 w-full max-w-6xl">
+          <h2 className="mb-4 text-center text-xs font-semibold uppercase tracking-wide text-stone-500">For investors</h2>
+          <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
+            <div className="h-full rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+              <h3 className="text-xl font-semibold tracking-tight">Why invest now</h3>
+              <ul className="mt-3 grid gap-2 text-sm text-stone-700">
+                <li className="inline-flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--accent)]" /> MVP live; early validation in Michelin‑star restaurants.</li>
+                <li className="inline-flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--accent)]" /> Free for HORECA; clear path to supplier‑side monetization.</li>
+                <li className="inline-flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--accent)]" /> Capital‑efficient roadmap focused on core workflows.</li>
+                <li className="inline-flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--accent)]" /> Growing beverage dataset and usage patterns create a moat.</li>
+              </ul>
+              <a href="mailto:sipman.asia@gmail.com" className="mt-4 inline-block rounded-xl bg-stone-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-stone-800">Request investor deck</a>
+            </div>
+            <div className="h-full rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+              <h3 className="mb-3 text-xl font-semibold tracking-tight">Testimonials</h3>
+              <ul className="space-y-2 text-sm text-stone-700">
+                <li className="rounded-lg border-l-2 border-[var(--accent)] bg-stone-50 p-2.5">
+                  <div className="mb-1 flex flex-wrap items-center gap-2 text-stone-500">
+                    <Quote className="h-4 w-4" />
+                    <span className="text-[11px] uppercase tracking-wide">Michelin-star restaurant</span>
+                    <span className="text-xs text-stone-600">— Chalee Kader · Wana Yook</span>
+                  </div>
+                  <p className="text-stone-800">“Sipman streamlines operations for creative kitchens.”</p>
+                </li>
+                <li className="rounded-lg border-l-2 border-[var(--accent)] bg-stone-50 p-2.5">
+                  <div className="mb-1 flex flex-wrap items-center gap-2 text-stone-500">
+                    <Quote className="h-4 w-4" />
+                    <span className="text-[11px] uppercase tracking-wide">Bangkok fine‑dining</span>
+                    <span className="text-xs text-stone-600">— Antoine & Théo · Bisou Bangkok</span>
+                  </div>
+                  <p className="text-stone-800">“Nothing comparable right now.”</p>
+                </li>
+                <li className="rounded-lg border-l-2 border-[var(--accent)] bg-stone-50 p-2.5">
+                  <div className="mb-1 flex flex-wrap items-center gap-2 text-stone-500">
+                    <Quote className="h-4 w-4" />
+                    <span className="text-[11px] uppercase tracking-wide">Suppliers</span>
+                    <span className="text-xs text-stone-600">— Kim Wachtveitl · Wine Garage</span>
+                  </div>
+                  <p className="text-stone-800">“Great opportunity for suppliers.”</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
       </main>
